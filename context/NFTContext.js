@@ -25,6 +25,7 @@ const fetchContract = (signerOrProvider) =>
   new ethers.Contract(MarketAddress, MarketAddressABI, signerOrProvider);
 
 export const NFTContext = React.createContext();
+const { ethereum } = window
 
 export const NFTProvider = ({ children }) => {
   const nftCurrency = 'ETH';
