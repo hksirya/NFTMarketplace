@@ -116,8 +116,9 @@ export const NFTProvider = ({ children }) => {
 
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
-
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const web3modal = new Web3Modal();
+    const connection = await web3modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
     const contract = fetchContract(provider);
 
     const data = await contract.fetchMarketItems();
